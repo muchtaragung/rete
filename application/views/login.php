@@ -19,12 +19,12 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="<?= site_url('admin/login') ?>"><b>User</b>Login</a>
+            <img width="200px" src="<?= base_url() ?>assets/img/logo/logo_rt.png" alt="">
         </div>
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Silahkan Login Untuk Admin</p>
+                <p class="login-box-msg">Silahkan Login Untuk Melanjutkan</p>
                 <?php if ($this->session->flashdata('msg')) : ?>
                     <div class="alert alert-success" role="alert">
                         <?= $this->session->flashdata('msg') ?>

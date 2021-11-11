@@ -7,7 +7,7 @@
                     <!-- Logo -->
                     <div class="col-xl-2 col-lg-2 col-md-1">
                         <div class="logo">
-                            <a href="index.html"><img src="<?= base_url() ?>assets/img/logo/logo_rt.png" alt=""></a>
+                            <a href="<?= base_url() ?>"><img src="<?= base_url() ?>assets/img/logo/logo_rt.png" alt=""></a>
                         </div>
                     </div>
                     <div class="col-xl-10 col-lg-10 col-md-10">
@@ -16,9 +16,9 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="about.html">Blog</a></li>
-                                        <li><a href="about.html">Login</a></li>
+                                        <li><a href="<?= base_url() ?>">Home</a></li>
+                                        <li><a href="<?= base_url() ?>blog">Blog</a></li>
+                                        <li><a href="<?= base_url() ?>login">Login</a></li>
                                     </ul>
                                 </nav>
                             </div>

@@ -55,6 +55,6 @@ $route['admin/auth']  = 'auth/admin_auth';
 $route['login'] = 'auth/user_login';
 $route['auth']  = 'auth/user_auth';
 
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
