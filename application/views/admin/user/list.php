@@ -48,11 +48,25 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
+                        <?php if ($this->session->flashdata('msg')) : ?>
+                            <div class="alert alert-success" role="alert">
+                                <?= $this->session->flashdata('msg') ?>
+                            </div>
+                        <?php elseif ($this->session->flashdata('error')) : ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?= $this->session->flashdata('error') ?>
+                            </div>
+                        <?php endif ?>
                         <div class="col-12">
                             <div class="card">
-                                <!-- <div class="card-header">
-                                    <h3 class="card-title">DataTable with default features</h3>
-                                </div> -->
+                                <div class="card-header">
+                                    <h3 class="card-title">List User | Resource Therapy</h3>
+                                    <div class="card-tools">
+                                        <a href="<?= site_url('admin/user/add') ?>" class="btn btn-tool btn-primary bg-primary">
+                                            <i class="fas fa-plus"></i>
+                                        </a>
+                                    </div>
+                                </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
                                     <table id="tabel" class="table table-bordered table-striped">
@@ -64,7 +78,7 @@
                                                 <th>Telepon</th>
                                                 <th>Kota</th>
                                                 <th>Role</th>
-                                                <th>ACTIOn</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -78,17 +92,17 @@
                                                     <td><?= $user->kota ?></td>
                                                     <td><?= $user->role ?></td>
                                                     <td>
-                                                        <a href="<?= site_url('admin/article/' . $data->id_user) ?>" class="btn btn-sm btn-success">
+                                                        <a href="<?= site_url('admin/artikel/' . $user->id_user) ?>" class="btn btn-sm btn-success" data-toggle="tooltip" title="Artikel">
                                                             <i class="fas fa-table"></i><br>
-                                                            Artikel
+
                                                         </a>
-                                                        <a href="<?= site_url('admin/edit/' . $data->id_user) ?>" class="btn btn-sm btn-info" title="Edit">
+                                                        <a href="<?= site_url('admin/edit/' . $user->id_user) ?>" class="btn btn-sm btn-info" data-toggle="tooltip" title="Edit">
                                                             <i class="fas fa-edit"></i><br>
-                                                            Edit
+
                                                         </a>
-                                                        <a href="<?= site_url('admin/delete/' . $data->id_user) ?>" class="btn btn-sm btn-danger">
+                                                        <a href="<?= site_url('admin/delete/' . $user->id_user) ?>" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Hapus">
                                                             <i class=" fas fa-trash"></i><br>
-                                                            Hapus
+
                                                         </a>
                                                     </td>
                                                 </tr>
