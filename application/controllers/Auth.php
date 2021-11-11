@@ -38,6 +38,7 @@ class Auth extends CI_Controller
                     'role' => 'admin'
                 ];
                 $this->session->set_userdata($data);
+                redirect('admin');
             } else {
                 $this->session->set_flashdata('error', 'Email Atau Password Salah');
                 redirect('admin/login');
