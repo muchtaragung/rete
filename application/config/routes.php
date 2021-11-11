@@ -53,6 +53,7 @@ $route['admin/login'] = 'auth/admin_login';
 $route['admin/auth']  = 'auth/admin_auth';
 
 $route['login'] = 'auth/user_login';
+$route['logout'] = 'auth/logout';
 $route['auth']  = 'auth/user_auth';
 
 $route['admin'] = 'admin/dashboard';

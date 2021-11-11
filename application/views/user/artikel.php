@@ -43,9 +43,9 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h3 class="card-title">List Artikel</h3>
-                                    <button type="button" class="btn btn-success float-right" onclick="add_user()">
+                                    <a class="btn btn-success float-right" href="<?= base_url() ?>artikel/form_artikel">
                                         <i class="fas fa-plus"></i>
-                                    </button>
+                                    </a>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
@@ -64,7 +64,7 @@
                                             <?php foreach ($artikel as $data) : ?>
                                                 <tr>
                                                     <td><?= $i++ ?></td>
-                                                    <td><img src="<?= base_url() ?>assets/img/artikel/<?= $data->gambar ?>" alt="" srcset=""></td>
+                                                    <td><img width="200px" src="<?= base_url() ?>assets/img/artikel/<?= $data->gambar ?>" alt="" srcset=""></td>
                                                     <td><?= $data->judul ?></td>
                                                     <td><?= $data->isi ?></td>
                                                     <td class="text-center">

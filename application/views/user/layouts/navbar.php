@@ -13,7 +13,7 @@
         <li class="nav-item">
             <a class="nav-link">
                 <i class="fas fa-user"></i>
-                &nbsp;<?= $this->session->userdata('name') ?>
+                &nbsp;<?= $this->session->userdata('nama') ?>
             </a>
         </li>
         <li class="nav-item">
