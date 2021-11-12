@@ -35,54 +35,23 @@ $this->load->view('layout/header');
         <div class="service-area">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-cat text-center mb-50">
-                            <div class="cat-icon">
-                                <img src="assets/img/icon/services1.svg" alt="">
+                    <?php foreach ($user as $data) :
+                        if ($data->role == 'trainer') { ?>
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="single-cat text-center mb-50">
+                                    <div class="cat-icon">
+                                        <img class="img-fluid" src="<?= base_url() ?>assets/img/user/<?= $data->foto ?>" alt="">
+                                    </div>
+                                    <div class="cat-cap">
+                                        <h5><a href="services.html"><?= $data->nama ?></a></h5>
+                                        <p><?= $data->profil ?></p>
+                                        <a href="<?= base_url() ?>" class="btn btn-md btn-outline-light">Blog</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="cat-cap">
-                                <h5><a href="services.html">Physical Activity</a></h5>
-                                <p>Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi sem ut ipsum.</p>
-                                <a href="services.html" class="btn btn-md btn-outline-light">Blog</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-cat text-center mb-50">
-                            <div class="cat-icon">
-                                <img src="assets/img/icon/services2.svg" alt="">
-                            </div>
-                            <div class="cat-cap">
-                                <h5><a href="services.html">Physical Activity</a></h5>
-                                <p>Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi sem ut ipsum.</p>
-                                <a href="services.html" class="btn btn-md btn-outline-light">Blog</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-cat text-center mb-50">
-                            <div class="cat-icon">
-                                <img src="assets/img/icon/services3.svg" alt="">
-                            </div>
-                            <div class="cat-cap">
-                                <h5><a href="services.html">Physical Activity</a></h5>
-                                <p>Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi sem ut ipsum.</p>
-                                <a href="services.html" class="btn btn-md btn-outline-light">Blog</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-cat text-center mb-50">
-                            <div class="cat-icon">
-                                <img src="assets/img/icon/services2.svg" alt="">
-                            </div>
-                            <div class="cat-cap">
-                                <h5><a href="services.html">Physical Activity</a></h5>
-                                <p>Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi sem ut ipsum.</p>
-                                <a href="services.html" class="btn btn-md btn-outline-light">Blog</a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                        }
+                    endforeach ?>
                 </div>
             </div>
         </div>
@@ -105,54 +74,20 @@ $this->load->view('layout/header');
         <div class="service-area">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-cat text-center mb-50">
-                            <div class="cat-icon">
-                                <img src="assets/img/icon/services1.svg" alt="">
-                            </div>
-                            <div class="cat-cap">
-                                <h5><a href="services.html">Physical Activity</a></h5>
-                                <p>Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi sem ut ipsum.</p>
-                                <a href="services.html" class="btn btn-md btn-outline-light">Blog</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-cat text-center mb-50">
-                            <div class="cat-icon">
-                                <img src="assets/img/icon/services2.svg" alt="">
-                            </div>
-                            <div class="cat-cap">
-                                <h5><a href="services.html">Physical Activity</a></h5>
-                                <p>Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi sem ut ipsum.</p>
-                                <<a href="services.html" class="btn btn-md btn-outline-light">Blog</a>
+                    <?php foreach ($user as $data) : ?>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="single-cat text-center mb-50 h-100">
+                                <div class="cat-icon">
+                                    <img class="img-fluid" src="<?= base_url() ?>assets/img/user/<?= $data->foto ?>" alt="">
+                                </div>
+                                <div class="cat-cap h-100">
+                                    <h5><a href="services.html"><?= $data->nama ?></a></h5>
+                                    <p><?= $data->profil ?></p>
+                                    <a href="<?= base_url() ?>" id="blog" class="btn btn-md btn-outline-light align-self-end">Blog</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-cat text-center mb-50">
-                            <div class="cat-icon">
-                                <img src="assets/img/icon/services3.svg" alt="">
-                            </div>
-                            <div class="cat-cap">
-                                <h5><a href="services.html">Physical Activity</a></h5>
-                                <p>Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi sem ut ipsum.</p>
-                                <<a href="services.html" class="btn btn-md btn-outline-light">Blog</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-cat text-center mb-50">
-                            <div class="cat-icon">
-                                <img src="assets/img/icon/services2.svg" alt="">
-                            </div>
-                            <div class="cat-cap">
-                                <h5><a href="services.html">Physical Activity</a></h5>
-                                <p>Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi sem ut ipsum.</p>
-                                <<a href="services.html" class="btn btn-md btn-outline-light">Blog</a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach ?>
                 </div>
             </div>
         </div>
