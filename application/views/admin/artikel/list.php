@@ -43,9 +43,6 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h3 class="card-title">List Artikel</h3>
-                                    <a class="btn btn-success float-right" href="<?= base_url() ?>artikel/form_artikel">
-                                        <i class="fas fa-plus"></i>
-                                    </a>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
