@@ -48,15 +48,17 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <?php if ($this->session->flashdata('msg')) : ?>
-                            <div class="alert alert-success" role="alert">
-                                <?= $this->session->flashdata('msg') ?>
-                            </div>
-                        <?php elseif ($this->session->flashdata('error')) : ?>
-                            <div class="alert alert-danger" role="alert">
-                                <?= $this->session->flashdata('error') ?>
-                            </div>
-                        <?php endif ?>
+                        <div class="col-12">
+                            <?php if ($this->session->flashdata('msg')) : ?>
+                                <div class="alert alert-success" role="alert">
+                                    <?= $this->session->flashdata('msg') ?>
+                                </div>
+                            <?php elseif ($this->session->flashdata('error')) : ?>
+                                <div class="alert alert-danger" role="alert">
+                                    <?= $this->session->flashdata('error') ?>
+                                </div>
+                            <?php endif ?>
+                        </div>
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
