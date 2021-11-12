@@ -43,6 +43,15 @@ class User extends CI_Controller
         redirect('admin/user/list');
     }
 
+    public function delete($id_user)
+    {
+        $this->_delete_image($id_user);
+        $this->user->delete(['id_user' => $id_user]);
+        $this->session->set_flashdata('msg', 'User berhasil dihapus!');
+        redirect('admin/user/list');
+    }
+
+
     private function _upload()
     {
         $config['upload_path']   = './assets/img/user/';
@@ -59,6 +68,16 @@ class User extends CI_Controller
             return redirect('admin/user/list');
         } else {
             return $this->upload->data("file_name");
+        }
+    }
+
+    private function _delete_image($id_user)
+    {
+        $file = $this->user->get_where(['id_user' => $id_user])->row();
+        if ($file->foto != "default.jpg") {
+            $filename = explode(".", $file->foto)[0];
+            // var_dump($filename);
+            return array_map('unlink', glob(FCPATH . "assets/img/user/$filename.*"));
         }
     }
 }

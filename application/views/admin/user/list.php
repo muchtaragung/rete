@@ -100,7 +100,7 @@
                                                             <i class="fas fa-edit"></i><br>
 
                                                         </a>
-                                                        <a href="<?= site_url('admin/delete/' . $user->id_user) ?>" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Hapus">
+                                                        <a href="<?= site_url('admin/user/delete/' . $user->id_user) ?>" class="btn btn-sm btn-danger" data-toggle="tooltip" title="Hapus">
                                                             <i class=" fas fa-trash"></i><br>
 
                                                         </a>
