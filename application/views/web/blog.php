@@ -14,6 +14,11 @@ $this->load->view('layout/header');
             background-size: cover;
             background-color: rgba(0, 0, 0, 0.8);
         }
+
+        .page-link a {
+            color: black;
+            font-size: 24px;
+        }
     </style>
     <main>
         <!--? Slider Area Start-->
@@ -47,7 +52,7 @@ $this->load->view('layout/header');
                                 <div class="blog_item_img">
                                     <img class="card-img rounded-0" src="<?= base_url() ?>assets/img/artikel/<?= $data->gambar ?>" alt="">
                                     <a href="#" class="blog_item_date">
-                                        <p><?php echo date('d F', strtotime($data->created_at)) ?></p>
+                                        <p><?php echo date('d F', strtotime($data->tgl_artikel)) ?></p>
                                     </a>
                                 </div>
                                 <div class="blog_details">

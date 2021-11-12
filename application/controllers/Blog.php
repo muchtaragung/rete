@@ -19,7 +19,7 @@ class Blog extends CI_Controller
         //konfigurasi pagination
         $config['base_url'] = site_url('blog/pages'); //site url
         $config['total_rows'] = $this->db->count_all('artikel'); //total row
-        $config['per_page'] = 10;  //show record per halaman
+        $config['per_page'] = 9;  //show record per halaman
         $config["uri_segment"] = 3;  // uri parameter
         $choice = $config["total_rows"] / $config["per_page"];
         $config["num_links"] = floor($choice);
@@ -27,8 +27,8 @@ class Blog extends CI_Controller
         // Membuat Style pagination untuk BootStrap v4
         $config['first_link']       = 'First';
         $config['last_link']        = 'Last';
-        $config['next_link']        = 'Next';
-        $config['prev_link']        = 'Prev';
+        // $config['next_link']        = 'Next';
+        // $config['prev_link']        = 'Prev';
         $config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
         $config['full_tag_close']   = '</ul></nav></div>';
         $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
@@ -47,13 +47,14 @@ class Blog extends CI_Controller
         $this->pagination->initialize($config);
         $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 
-        $select = '*';
+        $select = '*,artikel.created_at as tgl_artikel';
         $join = [
             ['user', 'user.id_user = artikel.id_user']
         ];
         $order = ['artikel.id_artikel', 'DESC'];
         $limit = [$config["per_page"], $data['page']];
         $data['artikel'] = $this->artikel->get_join_order_limit($select, $join, $order, $limit)->result();
+
 
         $data['pagination'] = $this->pagination->create_links();
         $this->load->view('web/blog', $data);

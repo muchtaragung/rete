@@ -3952,8 +3952,8 @@ hr {
     width: 45px;
     height: 45px;
     border-radius: 0 !important;
-    color: #8a8a8a;
-    border: 1px solid #f0e9ff;
+    color: #000000;
+    border: 1px solid rgb(2, 177, 2);
     margin-right: 10px;
 }
 .blog-pagination .page-link i,
@@ -3962,8 +3962,8 @@ hr {
 }
 .blog-pagination .page-item.active .page-link {
     background-color: #fbf9ff;
-    border-color: #f0e9ff;
-    color: #888888;
+    border-color: #000000;
+    color: #000000;
 }
 .blog-pagination .page-item:last-child .page-link {
     margin-right: 0;
