@@ -85,7 +85,7 @@ class Artikel extends CI_Controller
     private function _delete_image($id_artikel)
     {
         $file = $this->artikel->get_where(['id_artikel' => $id_artikel])->row();
-        $filename = explode(".", $file->foto)[0];
+        $filename = explode(".", $file->gambar)[0];
         // var_dump($file);
         return array_map('unlink', glob(FCPATH . "assets/img/artikel/$filename.*"));
     }
