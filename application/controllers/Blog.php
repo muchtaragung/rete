@@ -5,6 +5,11 @@ class Blog extends CI_Controller
 {
     public function index()
     {
-        $this->load->view('web/blog');
+        $data['title'] = 'Blog Trainer & Trapis';
+        $this->load->view('web/blog', $data);
+    }
+    public function detail()
+    {
+        $this->load->view('web/blog_detail');
     }
 }

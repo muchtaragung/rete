@@ -53,7 +53,7 @@ class Auth extends CI_Controller
     {
 
         $data['title'] = 'Login';
-        $this->load->view('login');
+        $this->load->view('login', $data);
     }
 
     public function user_auth()

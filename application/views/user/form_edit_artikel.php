@@ -17,7 +17,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Tambah Artikel</h1>
+                            <h1 class="m-0">Edit Artikel</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -42,15 +42,17 @@
                             <?php } ?>
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="<?= base_url() ?>artikel/save" method="post" enctype="multipart/form-data">
+                                    <form action="<?= base_url() ?>artikel/update" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" name="id" value="<?= $artikel->id_artikel ?>">
+                                        <input type="hidden" name="gambar_lama" value="<?= $artikel->gambar ?>">
                                         <div class="text-center mb-4">
-                                            <img width="200px" style="display: none;" class="image-fluid" id="image-preview" alt="image preview">
+                                            <img width="200px" src="<?= base_url() ?>assets/img/artikel/<?= $artikel->gambar ?>" class="image-fluid" id="image-preview" alt="image preview">
                                         </div>
                                         <div class="form-group">
                                             <label for="">Gambar (Maksimal 1 MB*)</label>
                                             <div class="input-group">
                                                 <div class="custom-file">
-                                                    <input type="file" required class="custom-file-input" name="gambar" id="image-source" accept="image/x-png,image/jpg,image/jpeg" onchange="previewImage();">
+                                                    <input type="file" class="custom-file-input" name="gambar" id="image-source" accept="image/x-png,image/jpg,image/jpeg" onchange="previewImage();">
                                                     <label class="custom-file-label" for="exampleInputFile">Pilih gambar</label>
                                                     <!-- <small id="helpId" class="text-muted">Maksimal 1 MB*</small> -->
                                                 </div>
@@ -58,12 +60,12 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="">Judul Artikel</label>
-                                            <input type="text" name="judul" required id="judul" class="form-control" placeholder="Judul">
+                                            <input type="text" name="judul" required id="judul" class="form-control" placeholder="Judul" value="<?= $artikel->judul ?>">
                                             <!-- <small id="helpId" class="text-muted">Help text</small> -->
                                         </div>
                                         <div class="form-group">
                                             <label for="">Isi Artikel</label>
-                                            <textarea name="isi" id="summernote" required class="form-control" placeholder="Isi"></textarea>
+                                            <textarea name="isi" id="summernote" required class="form-control" placeholder="Isi"><?= $artikel->isi ?></textarea>
                                             <!-- <small id="helpId" class="text-muted">Help text</small> -->
                                         </div>
                                         <button type="submit" class="btn btn-primary">Submit</button>

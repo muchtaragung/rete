@@ -26,6 +26,7 @@
 <script src="<?= base_url('assets/admin/') ?>plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="<?= base_url('assets/admin/') ?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script src="<?= base_url('assets/admin/') ?>plugins/summernote/summernote-bs4.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     $(function() {
         // Summernote

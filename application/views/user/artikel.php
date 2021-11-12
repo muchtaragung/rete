@@ -68,11 +68,11 @@
                                                     <td><?= $data->judul ?></td>
                                                     <td><?= $data->isi ?></td>
                                                     <td class="text-center">
-                                                        <button style="border-radius: 12px" type="button" class="btn btn-sm btn-info" title="Edit" onclick="edit_user('<?php echo $data->id_artikel ?>')">
+                                                        <a style="border-radius: 12px" class="btn btn-sm btn-info" title="Edit" href="<?= base_url() ?>artikel/form_edit/<?= $data->id_artikel ?>">
                                                             <i class="fas fa-edit"></i><br>
                                                             Edit
-                                                        </button>
-                                                        <button style="border-radius: 12px" type="button" class="btn btn-sm btn-danger" onclick="confirmDelete('<?= site_url('admin/User/delete/' . $data->id_artikel) ?>','<?= $data->judul ?>')">
+                                                        </a>
+                                                        <button style="border-radius: 12px" type="button" class="btn btn-sm btn-danger" onclick="confirmDelete('<?= site_url('artikel/hapus/' . $data->id_artikel) ?>','<?= $data->judul ?>')">
                                                             <i class="fas fa-trash"></i><br>
                                                             Hapus
                                                         </button>
@@ -96,7 +96,22 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-
+        <script>
+            function confirmDelete(link, nama) {
+                Swal.fire({
+                    title: 'Apakah Anda Ingin Menghapus Artikel ' + nama,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.replace(link)
+                    }
+                })
+            }
+        </script>
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->

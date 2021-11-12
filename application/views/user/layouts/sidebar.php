@@ -16,7 +16,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="<?= site_url('admin/dashboard') ?>" class="nav-link <?php if ($this->uri->segment(2) == 'dashboard') : ?> active <?php endif ?>">
+                    <a href="<?= site_url('artikel') ?>" class="nav-link <?php if ($this->uri->segment(2) == 'dashboard') : ?> active <?php endif ?>">
                         <i class="nav-icon far fa-address-card"></i>
                         <p>
                             Artikel
