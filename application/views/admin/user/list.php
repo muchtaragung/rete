@@ -96,7 +96,7 @@
                                                             <i class="fas fa-table"></i><br>
 
                                                         </a>
-                                                        <a href="<?= site_url('admin/edit/' . $user->id_user) ?>" class="btn btn-sm btn-info" data-toggle="tooltip" title="Edit">
+                                                        <a href="<?= site_url('admin/user/edit/' . $user->id_user) ?>" class="btn btn-sm btn-info" data-toggle="tooltip" title="Edit">
                                                             <i class="fas fa-edit"></i><br>
 
                                                         </a>

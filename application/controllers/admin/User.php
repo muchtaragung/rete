@@ -43,6 +43,36 @@ class User extends CI_Controller
         redirect('admin/user/list');
     }
 
+    public function edit($id_user)
+    {
+        $data['title'] = 'Edit User | Admin Resource Therapy';
+        $data['user'] = $this->user->get_where(['id_user' => $id_user])->row();
+        $this->load->view('admin/user/edit', $data);
+    }
+
+    public function update()
+    {
+        $data['id_user']  = $this->input->post('id_user');
+        $data['nama']     = $this->input->post('nama');
+        $data['email']    = $this->input->post('email');
+        $data['telepon']  = $this->input->post('telepon');
+        $data['profil']   = $this->input->post('profil');
+        $data['kota']     = $this->input->post('kota');
+        $data['role']     = $this->input->post('role');
+        if (!empty($_POST['password'])) {
+            $data['password'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+        }
+        if (!empty($_FILES['foto']['name'])) {
+            $this->_delete_image($data['id_user']);
+            $data['foto'] = $this->_upload();
+        }
+
+        $this->user->update($data);
+        $this->session->set_flashdata('msg', 'User berhasil diupdate!');
+        redirect('admin/user/list');
+    }
+
+
     public function delete($id_user)
     {
         $this->_delete_image($id_user);
