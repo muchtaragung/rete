@@ -68,6 +68,7 @@ class User extends CI_Controller
         }
 
         $this->user->update($data);
+
         $this->session->set_flashdata('msg', 'User berhasil diupdate!');
         redirect('admin/user/list');
     }
@@ -104,10 +105,8 @@ class User extends CI_Controller
     private function _delete_image($id_user)
     {
         $file = $this->user->get_where(['id_user' => $id_user])->row();
-        if ($file->foto != "default.jpg") {
-            $filename = explode(".", $file->foto)[0];
-            // var_dump($filename);
-            return array_map('unlink', glob(FCPATH . "assets/img/user/$filename.*"));
-        }
+        $filename = explode(".", $file->foto)[0];
+        // var_dump($file);
+        return array_map('unlink', glob(FCPATH . "assets/img/user/$filename.*"));
     }
 }

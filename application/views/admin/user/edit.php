@@ -52,6 +52,7 @@
                             <div class="form-group col-lg-12">
                                 <label for="">Nama</label>
                                 <input type="text" name="nama" class="form-control" placeholder="Nama" required value="<?= $user->nama ?>">
+                                <input type="hidden" name="id_user" value="<?= $user->id_user ?>">
                             </div>
                             <div class="form-group col-lg-5">
                                 <label for="">Email</label>
