@@ -94,7 +94,7 @@
                                                     <td><?= $user->kota ?></td>
                                                     <td><?= $user->role ?></td>
                                                     <td>
-                                                        <a href="<?= site_url('admin/artikel/' . $user->id_user) ?>" class="btn btn-sm btn-success" data-toggle="tooltip" title="Artikel">
+                                                        <a href="<?= site_url('admin/artikel/list/' . $user->id_user) ?>" class="btn btn-sm btn-success" data-toggle="tooltip" title="Artikel">
                                                             <i class="fas fa-table"></i><br>
 
                                                         </a>
