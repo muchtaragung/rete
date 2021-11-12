@@ -7,6 +7,11 @@ class User extends CI_Controller
     {
         parent::__construct();
 
+        if ($this->session->userdata('role') != 'admin') {
+            $this->session->set_flashdata('error', 'Anda Tidak Login Sebagai Admin');
+            redirect('admin/login');
+        }
+
         $this->load->model('Admin_model', 'admin');
         $this->load->model('User_model', 'user');
         $this->load->model('Artikel_model', 'artikel');
