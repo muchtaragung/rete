@@ -65,9 +65,9 @@
                                                     <td><?= $data->judul ?></td>
                                                     <td><?= $data->isi ?></td>
                                                     <td class="text-center">
-                                                        <button data-toggle="tooltip" title="Edit" type="button" class="btn btn-sm btn-info" title="Edit" onclick="edit_user('<?php echo $data->id_artikel ?>')">
+                                                        <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-sm btn-info" title="Edit" href="<?= site_url('admin/artikel/edit/' . $data->id_artikel) ?>">
                                                             <i class="fas fa-edit"></i><br>
-                                                        </button>
+                                                        </a>
                                                         <button data-toggle="tooltip" title="Hapus" type="button" class="btn btn-sm btn-danger" onclick="confirmDelete('<?= site_url('admin/User/delete/' . $data->id_artikel) ?>','<?= $data->judul ?>')">
                                                             <i class="fas fa-trash"></i><br>
                                                         </button>

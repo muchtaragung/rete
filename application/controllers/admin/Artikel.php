@@ -31,23 +31,26 @@ class Artikel extends CI_Controller
     {
         $data['title'] = 'Edit artikel | Admin Resource Therapy';
         $data['artikel'] = $this->artikel->get_where(['id_artikel' => $id_artikel])->row();
+
         $this->load->view('admin/artikel/edit', $data);
     }
 
     public function update()
     {
+        $data['id_artikel'] = $this->input->post('id_artikel');
         $data['judul']   = $this->input->post('judul');
         $data['slug']    = url_title($this->input->post('judul'), 'dash', true);
         $data['isi']     = $this->input->post('isi');
+        $data['id_user'] = $this->input->post('id_user');
         if (!empty($_FILES['gambar']['name'])) {
             $this->_delete_image($data['id_artikel']);
-            $data['foto'] = $this->_upload();
+            $data['gambar'] = $this->_upload();
         }
 
         $this->artikel->update($data);
 
         $this->session->set_flashdata('msg', 'artikel berhasil diupdate!');
-        redirect('admin/artikel/list');
+        redirect('admin/artikel/list/' . $data['id_user']);
     }
 
 
@@ -73,7 +76,7 @@ class Artikel extends CI_Controller
         if (!$this->upload->do_upload('gambar')) {
             // print_r($this->upload->display_errors());
             $this->session->set_flashdata('error', $this->upload->display_errors());
-            return redirect('admin/artikel/list');
+            return redirect('admin/user/list/');
         } else {
             return $this->upload->data("file_name");
         }
@@ -82,7 +85,7 @@ class Artikel extends CI_Controller
     private function _delete_image($id_artikel)
     {
         $file = $this->artikel->get_where(['id_artikel' => $id_artikel])->row();
-        $filename = explode(".", $file->foto)[0];
+        $filename = explode(".", $file->gambar)[0];
         // var_dump($file);
         return array_map('unlink', glob(FCPATH . "assets/img/artikel/$filename.*"));
     }
