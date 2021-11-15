@@ -34,7 +34,7 @@ class User extends CI_Controller
 
     public function save()
     {
-        
+
         $data['nama']     = $this->input->post('nama');
         $data['email']    = $this->input->post('email');
         $data['telepon']  = $this->input->post('telepon');
@@ -42,6 +42,7 @@ class User extends CI_Controller
         $data['kota']     = $this->input->post('kota');
         $data['role']     = $this->input->post('role');
         $data['foto']     = $this->_upload();
+        $data['slug']    = url_title($this->input->post('nama'), 'dash', true);
         $data['password'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
 
         $this->user->save($data);
