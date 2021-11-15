@@ -8,6 +8,7 @@ class Blog extends CI_Controller
         parent::__construct();
         $this->load->library('email');
         $this->load->model('artikel_model', 'artikel');
+        $this->load->model('user_model', 'user');
         $this->load->helper('security');
         $this->load->library('pagination');
         date_default_timezone_set('Asia/Jakarta');
@@ -107,7 +108,7 @@ class Blog extends CI_Controller
         $order = ['artikel.id_artikel', 'DESC'];
         $limit = [$config["per_page"], $data['page']];
         $data['artikel'] = $this->artikel->get_join_where_order_limit($select, $join, $where, $order, $limit)->result();
-        $data['user'] = $this->artikel->get_join_where_order_limit($select, $join, $where, $order, $limit)->row();
+        $data['user'] = $this->user->get_where($where)->row();
 
 
         $data['pagination'] = $this->pagination->create_links();
