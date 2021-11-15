@@ -57,13 +57,14 @@ class User extends CI_Controller
 
     public function update()
     {
-        $data['id_user']  = $this->input->post('id_user');
-        $data['nama']     = $this->input->post('nama');
-        $data['email']    = $this->input->post('email');
-        $data['telepon']  = $this->input->post('telepon');
-        $data['profil']   = $this->input->post('profil');
-        $data['kota']     = $this->input->post('kota');
-        $data['role']     = $this->input->post('role');
+        $data['id_user'] = $this->input->post('id_user');
+        $data['nama']    = $this->input->post('nama');
+        $data['email']   = $this->input->post('email');
+        $data['telepon'] = $this->input->post('telepon');
+        $data['profil']  = $this->input->post('profil');
+        $data['kota']    = $this->input->post('kota');
+        $data['role']    = $this->input->post('role');
+        $data['slug']    = url_title($this->input->post('nama'), 'dash', true);
         if (!empty($_POST['password'])) {
             $data['password'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
         }
