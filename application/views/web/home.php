@@ -38,7 +38,7 @@ $this->load->view('layout/header');
                     <?php foreach ($user as $data) :
                         if ($data->role == 'trainer') { ?>
                             <div class="col-lg-3 col-md-6 col-sm-6">
-                                <div class="single-cat text-center mb-50">
+                                <div class="single-cat text-center mb-50 h-100">
                                     <div class="cat-icon">
                                         <img class="img-fluid" src="<?= base_url() ?>assets/img/user/<?= $data->foto ?>" alt="">
                                     </div>
