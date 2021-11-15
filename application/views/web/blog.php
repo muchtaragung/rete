@@ -56,12 +56,12 @@ $this->load->view('layout/header');
                                     </a>
                                 </div>
                                 <div class="blog_details">
-                                    <a class="d-inline-block" href="blog_details.html">
+                                    <a class="d-inline-block" href="<?= base_url() . $data->slug . '/blog/' . $data->slug_artikel ?>">
                                         <h2 class="blog-head" style="color: #2d2d2d;"><?= $data->judul ?></h2>
                                     </a>
                                     <p><?php limit_echo($data->isi, 200) ?></p>
                                     <ul class="blog-info-link">
-                                        <li><a href="#"><i class="fa fa-user"></i><?= $data->nama ?></a></li>
+                                        <li><a href="<?= base_url() . $data->slug ?>"><i class="fa fa-user"></i><?= $data->nama ?></a></li>
                                         <!-- <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li> -->
                                     </ul>
                                 </div>

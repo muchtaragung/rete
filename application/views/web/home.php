@@ -78,7 +78,7 @@ $this->load->view('layout/header');
                         <div class="col-lg-3 col-md-6 col-sm-6 mb-3">
                             <div class="single-cat text-center mb-50 h-100">
                                 <div class="cat-icon">
-                                    <img class="img-fluid" src="<?= base_url() ?>assets/img/user/<?= $data->foto ?>" alt="">
+                                    <img width="300px" class="img-fluid rounded-circle" src="<?= base_url() ?>assets/img/user/<?= $data->foto ?>" alt="">
                                 </div>
                                 <div class="cat-cap h-100">
                                     <h5><a href="services.html"><?= $data->nama ?></a></h5>

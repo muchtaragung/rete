@@ -89,7 +89,7 @@ class Artikel_model extends CI_Model
     }
 
     /**
-     * mengambil data dengan join, kondisi order
+     * mengambil data dengan join, kondisi where, order
      *
      * @param String $select
      * @param Array $join
@@ -105,6 +105,29 @@ class Artikel_model extends CI_Model
         foreach ($join as $data) {
             $this->db->join($data[0], $data[1], 'left');
         }
+
+        $this->db->order_by($order[0], $order[1]);
+        $this->db->limit($limit[0], $limit[1]);
+        return $this->db->get();
+    }
+    /**
+     * mengambil data dengan join, kondisi order
+     *
+     * @param String $select
+     * @param Array $join
+     * @param Array $where
+     * @param Array $order
+     * @param array $limit
+     * @return void
+     */
+    public function get_join_where_order_limit(string $select, array $join, $where, array $order, array $limit)
+    {
+        $this->db->select($select);
+        $this->db->from($this->table);
+        foreach ($join as $data) {
+            $this->db->join($data[0], $data[1], 'left');
+        }
+        $this->db->where($where);
         $this->db->order_by($order[0], $order[1]);
         $this->db->limit($limit[0], $limit[1]);
         return $this->db->get();
@@ -192,5 +215,15 @@ class Artikel_model extends CI_Model
     public function delete(array $where)
     {
         return $this->db->delete($this->table, $where);
+    }
+    public function count_row_artikel_user(string $select, array $join, $where)
+    {
+        $this->db->select($select);
+        $this->db->from($this->table);
+        foreach ($join as $data) {
+            $this->db->join($data[0], $data[1], 'left');
+        }
+        $this->db->where($where);
+        return $this->db->count_all_results();
     }
 }

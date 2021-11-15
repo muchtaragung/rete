@@ -11,7 +11,7 @@
                                         <h3 class="mt-5">Resource Therapy Indonesia</h3>
                                     </div>
                                     <div class="single-footer-caption">
-                                        <h4 class="mt-5"><a class="text-dark" href="index.html">Tentang Kami</a></h4>
+                                        <h4 class="mt-5"><a class="text-dark" href="https://resourcetherapyindonesia.com/about/">Tentang Kami</a></h4>
                                     </div>
                                     <div class="single-footer-caption">
                                         <h4 class="mt-2"><a class="text-dark" href="index.html">Kontak Kami</a></h4>

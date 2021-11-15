@@ -14,6 +14,11 @@ $this->load->view('layout/header');
             background-size: cover;
             background-color: rgba(0, 0, 0, 0.8);
         }
+
+        .page-link a {
+            color: black;
+            font-size: 24px;
+        }
     </style>
     <main>
         <!--? Slider Area Start-->
@@ -28,13 +33,13 @@ $this->load->view('layout/header');
                                     <div class="row">
                                         <div class="col-md-6 ">
                                             <center>
-                                                <img width="350px" src="<?= base_url() ?>assets/img/hero/rt1.png" class="img-fluid rounded-circle" alt="Responsive image">
+                                                <img width="350px" src="<?= base_url() ?>assets/img/user/<?= $user->foto ?>" class="img-fluid rounded-circle" alt="Responsive image">
                                             </center>
                                         </div>
                                         <div class="col-md-6 pt-5 mt-5">
                                             <div class="hero__caption">
-                                                <h1 class="text-light" data-animation="fadeInUp" data-delay=".3s">Blog</h1>
-                                                <p class="text-light" data-animation="fadeInUp" data-delay=".6s">'Arkand' Daniel Goh</p>
+                                                <h1 class="text-light" data-animation="fadeInUp" data-delay=".3s"><?= $user->nama ?></h1>
+                                                <p style="font-size: medium;" class="text-light" data-animation="fadeInUp" data-delay=".6s"><?= $user->profil ?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -51,137 +56,32 @@ $this->load->view('layout/header');
         <section class="blog_area section-padding">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
-                        <article class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="assets/img/blog/single_blog_1.png" alt="">
-                                <a href="#" class="blog_item_date">
-                                    <h3>15</h3>
-                                    <p>Jan</p>
-                                </a>
-                            </div>
-                            <div class="blog_details">
-                                <a class="d-inline-block" href="blog_details.html">
-                                    <h2 class="blog-head" style="color: #2d2d2d;">Google inks pact for new 35-storey office</h2>
-                                </a>
-                                <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                    he earth it first without heaven in place seed it second morning saying.</p>
-                                <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-md-4">
-                        <article class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="assets/img/blog/single_blog_2.png" alt="">
-                                <a href="#" class="blog_item_date">
-                                    <h3>15</h3>
-                                    <p>Jan</p>
-                                </a>
-                            </div>
-                            <div class="blog_details">
-                                <a class="d-inline-block" href="blog_details.html">
-                                    <h2 class="blog-head" style="color: #2d2d2d;">Google inks pact for new 35-storey office</h2>
-                                </a>
-                                <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                    he earth it first without heaven in place seed it second morning saying.</p>
-                                <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-md-4">
-                        <article class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="assets/img/blog/single_blog_3.png" alt="">
-                                <a href="#" class="blog_item_date">
-                                    <h3>15</h3>
-                                    <p>Jan</p>
-                                </a>
-                            </div>
-                            <div class="blog_details">
-                                <a class="d-inline-block" href="blog_details.html">
-                                    <h2 class="blog-head" style="color: #2d2d2d;">Google inks pact for new 35-storey office</h2>
-                                </a>
-                                <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                    he earth it first without heaven in place seed it second morning saying.</p>
-                                <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-md-4">
-                        <article class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="assets/img/blog/single_blog_4.png" alt="">
-                                <a href="#" class="blog_item_date">
-                                    <h3>15</h3>
-                                    <p>Jan</p>
-                                </a>
-                            </div>
-                            <div class="blog_details">
-                                <a class="d-inline-block" href="blog_details.html">
-                                    <h2 class="blog-head" style="color: #2d2d2d;">Google inks pact for new 35-storey office</h2>
-                                </a>
-                                <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                    he earth it first without heaven in place seed it second morning saying.</p>
-                                <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-md-4">
-                        <article class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="assets/img/blog/single_blog_5.png" alt="">
-                                <a href="#" class="blog_item_date">
-                                    <h3>15</h3>
-                                    <p>Jan</p>
-                                </a>
-                            </div>
-                            <div class="blog_details">
-                                <a class="d-inline-block" href="blog_details.html">
-                                    <h2 class="blog-head" style="color: #2d2d2d;">Google inks pact for new 35-storey office</h2>
-                                </a>
-                                <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                    he earth it first without heaven in place seed it second morning saying.</p>
-                                <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
+                    <?php foreach ($artikel as $data) : ?>
+                        <div class="col-md-4">
+                            <article class="blog_item">
+                                <div class="blog_item_img">
+                                    <img class="card-img rounded-0" src="<?= base_url() ?>assets/img/artikel/<?= $data->gambar ?>" alt="">
+                                    <a href="#" class="blog_item_date">
+                                        <p><?php echo date('d F', strtotime($data->tgl_artikel)) ?></p>
+                                    </a>
+                                </div>
+                                <div class="blog_details">
+                                    <a class="d-inline-block" href="blog_details.html">
+                                        <h2 class="blog-head" style="color: #2d2d2d;"><?= $data->judul ?></h2>
+                                    </a>
+                                    <p><?php limit_echo($data->isi, 200) ?></p>
+                                    <ul class="blog-info-link">
+                                        <li><a href="#"><i class="fa fa-user"></i><?= $data->nama ?></a></li>
+                                        <!-- <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li> -->
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
+                    <?php endforeach ?>
                 </div>
                 <div class="row justify-content-center">
                     <nav class="blog-pagination d-flex">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a href="#" class="page-link" aria-label="Previous">
-                                    <i class="ti-angle-left"></i>
-                                </a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">1</a>
-                            </li>
-                            <li class="page-item active">
-                                <a href="#" class="page-link">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link" aria-label="Next">
-                                    <i class="ti-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
+                        <?php echo $pagination; ?>
                     </nav>
                 </div>
             </div>
