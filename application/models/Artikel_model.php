@@ -216,6 +216,8 @@ class Artikel_model extends CI_Model
     {
         return $this->db->delete($this->table, $where);
     }
+
+
     public function count_row_artikel_user(string $select, array $join, $where)
     {
         $this->db->select($select);
@@ -225,5 +227,14 @@ class Artikel_model extends CI_Model
         }
         $this->db->where($where);
         return $this->db->count_all_results();
+    }
+
+
+    public function check_form($id_user, $judul)
+    {
+        $this->db->select('*');
+        $this->db->where('id_user', $id_user);
+        $this->db->where('judul', $judul);
+        return $this->db->get($this->table);
     }
 }

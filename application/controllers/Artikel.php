@@ -27,32 +27,36 @@ class Artikel extends CI_Controller
     }
     public function save()
     {
-        
-
-
-        $config['upload_path'] = "./assets/img/artikel";
-        $config['allowed_types'] = 'jpeg|jpg|png';
-        $config['max_size'] = '1024';
-        $this->load->library('upload', $config);
-        $this->upload->initialize($config);
-        if ($this->upload->do_upload("gambar")) {
-            $data = array('upload_data' => $this->upload->data());
-            $file = $data['upload_data']['file_name'];
+        // $uri = $this->input->post('uri', true);
+        $form_check = $this->artikel->check_form($this->session->userdata('id_user'), $this->input->post('judul', true));
+        if ($form_check->num_rows() > 0) {
+            $this->session->set_flashdata('error', 'Judul artikel sudah tersedia');
+            redirect('artikel/form_artikel');
         } else {
-            $this->session->set_flashdata('error', 'Gambar gagal di tambahkan');
+            $config['upload_path'] = "./assets/img/artikel";
+            $config['allowed_types'] = 'jpeg|jpg|png';
+            $config['max_size'] = '1024';
+            $this->load->library('upload', $config);
+            $this->upload->initialize($config);
+            if ($this->upload->do_upload("gambar")) {
+                $data = array('upload_data' => $this->upload->data());
+                $file = $data['upload_data']['file_name'];
+            } else {
+                $this->session->set_flashdata('error', 'Gambar gagal di tambahkan');
+                redirect('artikel');
+            }
+            $slug = url_title($this->input->post('judul', true), 'dash', true);
+            $data = array(
+                'judul' => $this->input->post('judul', true),
+                'slug' => $slug,
+                'gambar' => $file,
+                'isi' =>  $this->input->post('isi', true),
+                'id_user' =>  $this->session->userdata('id_user')
+            );
+            $this->artikel->save($data);
+            $this->session->set_flashdata('msg', 'Artikel berhasil di tambah');
             redirect('artikel');
         }
-        $slug = url_title($this->input->post('judul', true), 'dash', true);
-        $data = array(
-            'judul' => $this->input->post('judul', true),
-            'slug' => $slug,
-            'gambar' => $file,
-            'isi' =>  $this->input->post('isi', true),
-            'id_user' =>  $this->session->userdata('id_user')
-        );
-        $this->artikel->save($data);
-        $this->session->set_flashdata('msg', 'Artikel berhasil di tambah');
-        redirect('artikel');
     }
     public function form_edit($id)
     {
