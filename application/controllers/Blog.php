@@ -9,6 +9,7 @@ class Blog extends CI_Controller
         $this->load->library('email');
         $this->load->model('artikel_model', 'artikel');
         $this->load->model('user_model', 'user');
+        $this->load->model('comment_model', 'comment');
         $this->load->helper('security');
         $this->load->library('pagination');
         date_default_timezone_set('Asia/Jakarta');
@@ -127,6 +128,7 @@ class Blog extends CI_Controller
         $order = ['artikel.id_artikel', 'DESC'];
         $data['artikel'] = $this->artikel->get_join_where_order($select, $join, $where, $order)->row();
         $data['title'] = $data['artikel']->judul;
+        $data['comment'] = $this->comment->get_where(['id_artikel' => $data['artikel']->id_artikel])->result();
         $this->load->view('web/blog_detail', $data);
     }
 
@@ -148,6 +150,6 @@ class Blog extends CI_Controller
 
         $artikel = $this->artikel->get_join_where($select, $join, $where)->row();
 
-        redirect($artikel->slug . '/blog/' . $artikel->artikel_slug);
+        redirect($artikel->slug . '/blog/' . $artikel->artikel_slug . '#comment');
     }
 }
