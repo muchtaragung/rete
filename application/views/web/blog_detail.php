@@ -74,7 +74,7 @@ $this->load->view('layout/header');
                             <div class="media align-items-center">
                                 <img src="<?= base_url() ?>assets/img/user/<?= $artikel->foto ?>" alt="">
                                 <div class="media-body">
-                                    <a href="#">
+                                    <a href="<?= site_url($artikel->slug) ?>">
                                         <h4><?= $artikel->nama ?></h4>
                                     </a>
                                     <p><?= $artikel->profil ?></p>
