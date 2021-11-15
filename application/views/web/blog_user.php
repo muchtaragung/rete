@@ -94,9 +94,9 @@ $this->load->view('layout/header');
                             <article class="blog_item">
                                 <div class="blog_item_img">
                                     <img class="card-img rounded-0" src="<?= base_url() ?>assets/img/artikel/<?= $data->gambar ?>" alt="">
-                                    <a href="#" class="blog_item_date">
+                                    <div class="blog_item_date">
                                         <p><?php echo date('d F', strtotime($data->tgl_artikel)) ?></p>
-                                    </a>
+                                    </div>
                                 </div>
                                 <div class="blog_details">
                                     <a class="d-inline-block" href="<?= base_url() . $data->slug . '/blog/' . $data->slug_artikel ?>">
