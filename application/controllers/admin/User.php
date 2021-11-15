@@ -103,6 +103,7 @@ class User extends CI_Controller
             $this->session->set_flashdata('error', $this->upload->display_errors());
             return redirect('admin/user/list');
         } else {
+            $this->resizeImage($this->upload->data("file_name"));
             return $this->upload->data("file_name");
         }
     }
@@ -113,5 +114,26 @@ class User extends CI_Controller
         $filename = explode(".", $file->foto)[0];
         // var_dump($file);
         return array_map('unlink', glob(FCPATH . "assets/img/user/$filename.*"));
+    }
+
+    private function resizeImage($filename)
+    {
+        $source_path = FCPATH . "assets/img/user/" . $filename;
+        $target_path = FCPATH . "assets/img/user/";
+        $config_manip = array(
+            'image_library' => 'gd2',
+            'source_image' => $source_path,
+            'new_image' => $target_path,
+            'maintain_ratio' => TRUE,
+            'width' => 500,
+        );
+
+        $this->load->library('image_lib', $config_manip);
+        if (!$this->image_lib->resize()) {
+            $this->session->set_flashdata('error', $this->upload->display_errors());
+            return redirect('admin/user/list');
+        }
+
+        $this->image_lib->clear();
     }
 }
