@@ -105,4 +105,3 @@ $this->load->view('layout/header');
     ?>
 </body>
 
-</html>
