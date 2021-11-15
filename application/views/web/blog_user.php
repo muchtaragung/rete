@@ -66,7 +66,7 @@ $this->load->view('layout/header');
                                     </a>
                                 </div>
                                 <div class="blog_details">
-                                    <a class="d-inline-block" href="blog_details.html">
+                                    <a class="d-inline-block" href="<?= base_url() . $data->slug . '/blog/' . $data->slug_artikel ?>">
                                         <h2 class="blog-head" style="color: #2d2d2d;"><?= $data->judul ?></h2>
                                     </a>
                                     <p><?php limit_echo($data->isi, 200) ?></p>
