@@ -57,13 +57,14 @@ class User extends CI_Controller
 
     public function update()
     {
-        $data['id_user']  = $this->input->post('id_user');
-        $data['nama']     = $this->input->post('nama');
-        $data['email']    = $this->input->post('email');
-        $data['telepon']  = $this->input->post('telepon');
-        $data['profil']   = $this->input->post('profil');
-        $data['kota']     = $this->input->post('kota');
-        $data['role']     = $this->input->post('role');
+        $data['id_user'] = $this->input->post('id_user');
+        $data['nama']    = $this->input->post('nama');
+        $data['email']   = $this->input->post('email');
+        $data['telepon'] = $this->input->post('telepon');
+        $data['profil']  = $this->input->post('profil');
+        $data['kota']    = $this->input->post('kota');
+        $data['role']    = $this->input->post('role');
+        $data['slug']    = url_title($this->input->post('nama'), 'dash', true);
         if (!empty($_POST['password'])) {
             $data['password'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
         }
@@ -103,6 +104,7 @@ class User extends CI_Controller
             $this->session->set_flashdata('error', $this->upload->display_errors());
             return redirect('admin/user/list');
         } else {
+            $this->resizeImage($this->upload->data("file_name"));
             return $this->upload->data("file_name");
         }
     }
@@ -113,5 +115,26 @@ class User extends CI_Controller
         $filename = explode(".", $file->foto)[0];
         // var_dump($file);
         return array_map('unlink', glob(FCPATH . "assets/img/user/$filename.*"));
+    }
+
+    private function resizeImage($filename)
+    {
+        $source_path = FCPATH . "assets/img/user/" . $filename;
+        $target_path = FCPATH . "assets/img/user/";
+        $config_manip = array(
+            'image_library' => 'gd2',
+            'source_image' => $source_path,
+            'new_image' => $target_path,
+            'maintain_ratio' => TRUE,
+            'width' => 500,
+        );
+
+        $this->load->library('image_lib', $config_manip);
+        if (!$this->image_lib->resize()) {
+            $this->session->set_flashdata('error', $this->upload->display_errors());
+            return redirect('admin/user/list');
+        }
+
+        $this->image_lib->clear();
     }
 }
