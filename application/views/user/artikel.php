@@ -66,7 +66,7 @@
                                                     <td><?= $i++ ?></td>
                                                     <td><img width="200px" src="<?= base_url() ?>assets/img/artikel/<?= $data->gambar ?>" alt="" srcset=""></td>
                                                     <td><?= $data->judul ?></td>
-                                                    <td><?= $data->isi ?></td>
+                                                    <td><?php limit_echo($data->isi, 150)  ?></td>
                                                     <td class="text-center">
                                                         <a style="border-radius: 12px" class="btn btn-sm btn-info" title="Edit" href="<?= base_url() ?>artikel/form_edit/<?= $data->id_artikel ?>">
                                                             <i class="fas fa-edit"></i><br>
