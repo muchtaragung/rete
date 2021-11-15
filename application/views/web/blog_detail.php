@@ -33,6 +33,20 @@ $this->load->view('layout/header');
         .isi-blog ol {
             padding-left: 40px;
         }
+
+        .isi-blog hr {
+            border-color: #000000;
+            margin: 30px 0px;
+            padding: 0;
+        }
+
+        .isi-blog b,
+        sup,
+        sub,
+        u,
+        del {
+            color: #000000;
+        }
     </style>
     <main>
         <!--? Blog Area Start -->
