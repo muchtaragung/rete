@@ -34,6 +34,7 @@ class User extends CI_Controller
 
     public function save()
     {
+        
         $data['nama']     = $this->input->post('nama');
         $data['email']    = $this->input->post('email');
         $data['telepon']  = $this->input->post('telepon');

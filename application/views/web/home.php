@@ -45,7 +45,7 @@ $this->load->view('layout/header');
                                     <div class="cat-cap">
                                         <h5><a href="services.html"><?= $data->nama ?></a></h5>
                                         <p><?= $data->profil ?></p>
-                                        <a href="<?= base_url() ?>" class="btn btn-md btn-outline-light">Blog</a>
+                                        <a href="<?= base_url() . $data->slug ?>" class="btn btn-md btn-outline-light">Blog</a>
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +83,7 @@ $this->load->view('layout/header');
                                 <div class="cat-cap h-100">
                                     <h5><a href="services.html"><?= $data->nama ?></a></h5>
                                     <p><?= $data->profil ?></p>
-                                    <a href="<?= base_url() ?>" class="btn btn-md btn-outline-light align-self-end">Blog</a>
+                                    <a href="<?= base_url() . $data->slug ?>" class="btn btn-md btn-outline-light align-self-end">Blog</a>
                                 </div>
                             </div>
                         </div>

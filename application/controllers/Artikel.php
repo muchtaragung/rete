@@ -27,6 +27,9 @@ class Artikel extends CI_Controller
     }
     public function save()
     {
+        
+
+
         $config['upload_path'] = "./assets/img/artikel";
         $config['allowed_types'] = 'jpeg|jpg|png';
         $config['max_size'] = '1024';
