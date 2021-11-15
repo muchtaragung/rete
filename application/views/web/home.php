@@ -44,14 +44,9 @@ $this->load->view('layout/header');
                                     </div>
                                     <div class="cat-cap">
                                         <h5><a href="services.html"><?= $data->nama ?></a></h5>
-<<<<<<< HEAD
-                                        <p><?= $data->profil ?></p>
-                                        <a href="<?= base_url() . $data->slug ?>" class="btn btn-md btn-outline-light">Blog</a>
-=======
                                         <p><?= $data->kota ?></p>
                                         <p><?php limit_echo($data->profil, 50) ?></p>
                                         <a href="<?= base_url($data->slug) ?>" class="btn btn-md btn-outline-light align-self-end">Blog</a>
->>>>>>> origin/main
                                     </div>
                                 </div>
                             </div>
@@ -87,10 +82,8 @@ $this->load->view('layout/header');
                                     <img class="img-fluid rounded-circle" src="<?= base_url() ?>assets/img/user/<?= $data->foto ?>" alt="">
                                 </div>
                                 <div class="cat-cap h-100">
-
                                     <h5><a href="services.html"><?= $data->nama ?></a></h5>
                                     <p><?= $data->profil ?></p>
-                                    <a href="<?= base_url() . $data->slug ?>" class="btn btn-md btn-outline-light align-self-end">Blog</a>
                                     <h3><?= $data->nama ?></h3>
                                     <p><?= $data->kota ?></p>
                                     <a href="<?= base_url($data->slug) ?>" class="btn btn-md btn-outline-light align-self-end">Blog</a>
