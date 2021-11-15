@@ -38,14 +38,20 @@ $this->load->view('layout/header');
                     <?php foreach ($user as $data) :
                         if ($data->role == 'trainer') { ?>
                             <div class="col-lg-3 col-md-6 col-sm-6">
-                                <div class="single-cat text-center mb-50 h-100">
+                                <div class="single-cat text-center mb-50">
                                     <div class="cat-icon">
-                                        <img class="img-fluid" src="<?= base_url() ?>assets/img/user/<?= $data->foto ?>" alt="">
+                                        <img class="img-fluid rounded-circle" src="<?= base_url() ?>assets/img/user/<?= $data->foto ?>" alt="">
                                     </div>
                                     <div class="cat-cap">
                                         <h5><a href="services.html"><?= $data->nama ?></a></h5>
+<<<<<<< HEAD
                                         <p><?= $data->profil ?></p>
                                         <a href="<?= base_url() . $data->slug ?>" class="btn btn-md btn-outline-light">Blog</a>
+=======
+                                        <p><?= $data->kota ?></p>
+                                        <p><?php limit_echo($data->profil, 50) ?></p>
+                                        <a href="<?= base_url($data->slug) ?>" class="btn btn-md btn-outline-light align-self-end">Blog</a>
+>>>>>>> origin/main
                                     </div>
                                 </div>
                             </div>
@@ -76,14 +82,20 @@ $this->load->view('layout/header');
                 <div class="row">
                     <?php foreach ($user as $data) : ?>
                         <div class="col-lg-3 col-md-6 col-sm-6 mb-3">
-                            <div class="single-cat text-center mb-50 h-100">
+                            <div class="single-cat text-center mb-50 ">
                                 <div class="cat-icon">
-                                    <img width="300px" class="img-fluid rounded-circle" src="<?= base_url() ?>assets/img/user/<?= $data->foto ?>" alt="">
+                                    <img class="img-fluid rounded-circle" src="<?= base_url() ?>assets/img/user/<?= $data->foto ?>" alt="">
                                 </div>
                                 <div class="cat-cap h-100">
+<<<<<<< HEAD
                                     <h5><a href="services.html"><?= $data->nama ?></a></h5>
                                     <p><?= $data->profil ?></p>
                                     <a href="<?= base_url() . $data->slug ?>" class="btn btn-md btn-outline-light align-self-end">Blog</a>
+=======
+                                    <h3><?= $data->nama ?></h3>
+                                    <p><?= $data->kota ?></p>
+                                    <a href="<?= base_url($data->slug) ?>" class="btn btn-md btn-outline-light align-self-end">Blog</a>
+>>>>>>> origin/main
                                 </div>
                             </div>
                         </div>

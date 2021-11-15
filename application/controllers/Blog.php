@@ -8,6 +8,7 @@ class Blog extends CI_Controller
         parent::__construct();
         $this->load->library('email');
         $this->load->model('artikel_model', 'artikel');
+        $this->load->model('user_model', 'user');
         $this->load->helper('security');
         $this->load->library('pagination');
         date_default_timezone_set('Asia/Jakarta');
@@ -107,7 +108,7 @@ class Blog extends CI_Controller
         $order = ['artikel.id_artikel', 'DESC'];
         $limit = [$config["per_page"], $data['page']];
         $data['artikel'] = $this->artikel->get_join_where_order_limit($select, $join, $where, $order, $limit)->result();
-        $data['user'] = $this->artikel->get_join_where_order_limit($select, $join, $where, $order, $limit)->row();
+        $data['user'] = $this->user->get_where($where)->row();
 
 
         $data['pagination'] = $this->pagination->create_links();
@@ -127,5 +128,26 @@ class Blog extends CI_Controller
         $data['artikel'] = $this->artikel->get_join_where_order($select, $join, $where, $order)->row();
         $data['title'] = $data['artikel']->judul;
         $this->load->view('web/blog_detail', $data);
+    }
+
+    public function comment()
+    {
+        $data['comment'] = $this->input->post('comment');
+        $data['nama_visitor'] = $this->input->post('nama_visitor');
+        $data['email_visitor'] = $this->input->post('email_visitor');
+        $data['web_visitor'] = $this->input->post('web_visitor');
+        $data['id_artikel'] = $this->input->post('id_artikel');
+
+        $this->comment->save($data);
+
+        $select = '*,artikel.created_at as tgl_artikel, artikel.slug as artikel_slug';
+        $join = [
+            ['user', 'user.id_user = artikel.id_user']
+        ];
+        $where = ['artikel.id_artikel' => $data['id_artikel']];
+
+        $artikel = $this->artikel->get_join_where($select, $join, $where)->row();
+
+        redirect($artikel->slug . '/blog/' . $artikel->artikel_slug);
     }
 }
