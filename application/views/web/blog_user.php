@@ -19,6 +19,39 @@ $this->load->view('layout/header');
             color: black;
             font-size: 24px;
         }
+
+        .isi-blog ol li {
+            list-style-type: inherit;
+            font-size: 15px;
+        }
+
+        .isi-blog ul li {
+            list-style-type: decimal;
+            font-size: 15px;
+
+        }
+
+        .isi-blog ul {
+            padding-left: 40px;
+        }
+
+        .isi-blog ol {
+            padding-left: 40px;
+        }
+
+        .isi-blog hr {
+            border-color: #000000;
+            margin: 30px 0px;
+            padding: 0;
+        }
+
+        .isi-blog b,
+        sup,
+        sub,
+        u,
+        del {
+            color: #000000;
+        }
     </style>
     <main>
         <!--? Slider Area Start-->
@@ -69,7 +102,7 @@ $this->load->view('layout/header');
                                     <a class="d-inline-block" href="<?= base_url() . $data->slug . '/blog/' . $data->slug_artikel ?>">
                                         <h2 class="blog-head" style="color: #2d2d2d;"><?= $data->judul ?></h2>
                                     </a>
-                                    <p><?php limit_echo($data->isi, 200) ?></p>
+                                    <div class="isi-blog"><?php limit_echo($data->isi, 200) ?></div>
                                     <ul class="blog-info-link">
                                         <li><a href="#"><i class="fa fa-user"></i><?= $data->nama ?></a></li>
                                         <!-- <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li> -->
