@@ -14,6 +14,25 @@ $this->load->view('layout/header');
             background-size: cover;
             background-color: rgba(0, 0, 0, 0.8);
         }
+
+        .isi-blog ol li {
+            list-style-type: inherit;
+            font-size: 15px;
+        }
+
+        .isi-blog ul li {
+            list-style-type: decimal;
+            font-size: 15px;
+
+        }
+
+        .isi-blog ul {
+            padding-left: 40px;
+        }
+
+        .isi-blog ol {
+            padding-left: 40px;
+        }
     </style>
     <main>
         <!--? Blog Area Start -->
@@ -32,7 +51,9 @@ $this->load->view('layout/header');
                                     <li><a href="#"><i class="fa fa-user"></i> <?= $artikel->nama ?></a></li>
                                     <!-- <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li> -->
                                 </ul>
-                                <?= $artikel->isi ?>
+                                <div class="isi-blog">
+                                    <?= $artikel->isi ?>
+                                </div>
                             </div>
                         </div>
                         <div class="blog-author">
