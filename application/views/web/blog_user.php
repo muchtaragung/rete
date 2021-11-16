@@ -55,7 +55,7 @@ $this->load->view('layout/header');
 
         .img-cropped {
             object-fit: cover;
-            object-position: center center;
+            /* object-position: center center; */
             width: 300px;
             height: 300px;
         }
