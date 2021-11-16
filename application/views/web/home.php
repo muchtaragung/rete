@@ -7,6 +7,14 @@ $this->load->view('layout/header');
     $this->load->view('layout/navbar');
     ?>
     <main>
+        <style>
+            .img-cropped {
+                object-fit: cover;
+                object-position: center center;
+                width: 250px;
+                height: 250px;
+            }
+        </style>
         <!--? Slider Area Start-->
         <div class="slider-area">
             <div class="slider-active dot-style">
@@ -79,7 +87,7 @@ $this->load->view('layout/header');
                         <div class="col-lg-3 col-md-6 col-sm-6 mb-3">
                             <div class="single-cat text-center mb-50 ">
                                 <div class="cat-icon">
-                                    <img class="img-fluid rounded-circle" src="<?= base_url() ?>assets/img/user/<?= $data->foto ?>" alt="">
+                                    <img class="img-fluid rounded-circle img-cropped" src="<?= base_url() ?>assets/img/user/<?= $data->foto ?>" alt="">
                                 </div>
                                 <div class="cat-cap h-100">
                                     <h3><?= $data->nama ?></h3>
@@ -104,4 +112,3 @@ $this->load->view('layout/header');
     $this->load->view('layout/script');
     ?>
 </body>
-
