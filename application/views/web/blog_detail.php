@@ -47,6 +47,13 @@ $this->load->view('layout/header');
         del {
             color: #000000;
         }
+
+        .img-cropped {
+            object-fit: cover;
+            object-position: center center;
+            width: 250px;
+            height: 250px;
+        }
     </style>
     <main>
         <!--? Blog Area Start -->
@@ -72,7 +79,7 @@ $this->load->view('layout/header');
                         </div>
                         <div class="blog-author">
                             <div class="media align-items-center">
-                                <img src="<?= base_url() ?>assets/img/user/<?= $artikel->foto ?>" alt="">
+                                <img class="rounded-circle img-cropped" src="<?= base_url() ?>assets/img/user/<?= $artikel->foto ?>" alt="">
                                 <div class="media-body">
                                     <a href="<?= site_url($artikel->slug) ?>">
                                         <h4><?= $artikel->nama ?></h4>
