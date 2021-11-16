@@ -73,7 +73,7 @@ $this->load->view('layout/header');
                                     <div class="row">
                                         <div class="col-md-6 ">
                                             <center>
-                                                <img class="rounded-circle img-cropped" width=" 350px" src="<?= base_url() ?>assets/img/user/<?= $user->foto ?>" class="img-fluid rounded-circle" alt="Responsive image">
+                                                <img class="img-fluid rounded-circle img-cropped" width=" 350px" src="<?= base_url() ?>assets/img/user/<?= $user->foto ?>" class="img-fluid rounded-circle" alt="Responsive image">
                                             </center>
                                         </div>
                                         <div class="col-md-6 pt-5 mt-5">
