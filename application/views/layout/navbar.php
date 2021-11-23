@@ -16,7 +16,7 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="<?= base_url() ?>">Trainier & Trapis</a></li>
+                                        <li><a href="<?= base_url() ?>">Trainer & Terapis</a></li>
                                         <li><a href="<?= base_url() ?>blog">Blog</a></li>
                                         <li><a href="<?= base_url() ?>login">Login</a></li>
                                     </ul>
