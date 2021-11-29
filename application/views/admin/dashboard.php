@@ -57,7 +57,6 @@
                         <div class="col-md-4 col-sm-6 col-12">
                             <div class="info-box shadow">
                                 <span class="info-box-icon bg-info"><i class="far fa-copy"></i></span>
-
                                 <div class="info-box-content">
                                     <span class="info-box-text">Artikel</span>
                                     <span class="info-box-number"><?= $this->db->count_all_results('artikel'); ?></span>
@@ -69,7 +68,6 @@
                         <div class="col-md-4 col-sm-6 col-12">
                             <div class="info-box shadow">
                                 <span class="info-box-icon bg-danger"><i class="far fa-comment"></i></span>
-
                                 <div class="info-box-content">
                                     <span class="info-box-text">Komentar</span>
                                     <span class="info-box-number"><?= $this->db->count_all_results('comment'); ?></span>
