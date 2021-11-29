@@ -52,6 +52,13 @@ $this->load->view('layout/header');
         del {
             color: #000000;
         }
+
+        .img-cropped {
+            object-fit: cover;
+            /* object-position: center center; */
+            width: 300px;
+            height: 300px;
+        }
     </style>
     <main>
         <!--? Slider Area Start-->
@@ -66,7 +73,7 @@ $this->load->view('layout/header');
                                     <div class="row">
                                         <div class="col-md-6 ">
                                             <center>
-                                                <img width="350px" src="<?= base_url() ?>assets/img/user/<?= $user->foto ?>" class="img-fluid rounded-circle" alt="Responsive image">
+                                                <img class="img-fluid rounded-circle img-cropped" width=" 350px" src="<?= base_url() ?>assets/img/user/<?= $user->foto ?>" class="img-fluid rounded-circle" alt="Responsive image">
                                             </center>
                                         </div>
                                         <div class="col-md-6 pt-5 mt-5">
