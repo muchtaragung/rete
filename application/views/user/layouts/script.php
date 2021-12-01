@@ -34,8 +34,7 @@
             height: 400,
             toolbar: [
                 ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['color', ['color']],
-                ['insert', ['link', 'hr']],
+                ['insert', ['link']],
                 ['para', ['ul', 'ol']],
             ]
         });
