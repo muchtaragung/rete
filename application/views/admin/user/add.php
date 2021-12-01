@@ -49,9 +49,13 @@
                 <div class="container-fluid">
                     <form action="<?= site_url('admin/user/save') ?>" method="post" enctype="multipart/form-data">
                         <div class="row">
-                            <div class="form-group col-lg-12">
+                            <div class="form-group col-lg-8">
                                 <label for="">Nama</label>
                                 <input type="text" name="nama" class="form-control" placeholder="Nama" required>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label for="">Slug</label>
+                                <input type="text" name="slug" class="form-control" placeholder="Slug" required>
                             </div>
                             <div class="form-group col-lg-5">
                                 <label for="">Email</label>

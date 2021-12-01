@@ -42,7 +42,7 @@ class User extends CI_Controller
         $data['kota']     = $this->input->post('kota');
         $data['role']     = $this->input->post('role');
         $data['foto']     = $this->_upload();
-        $data['slug']    = url_title($this->input->post('nama'), 'dash', true);
+        $data['slug']    = $this->input->post('slug');
         $data['password'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
 
         $this->user->save($data);
@@ -66,7 +66,7 @@ class User extends CI_Controller
         $data['profil']  = $this->input->post('profil');
         $data['kota']    = $this->input->post('kota');
         $data['role']    = $this->input->post('role');
-        $data['slug']    = url_title($this->input->post('nama'), 'dash', true);
+        $data['slug']    = $this->input->post('slug');
         if (!empty($_POST['password'])) {
             $data['password'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
         }

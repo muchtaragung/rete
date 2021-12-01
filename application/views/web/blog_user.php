@@ -7,12 +7,40 @@ $this->load->view('layout/header');
     $this->load->view('layout/navbar');
     ?>
     <style>
+        #profile {
+            width: 100px;
+            height: auto;
+        }
+
+        @media (min-width: 768px) {
+            #profile {
+                width: 150px;
+            }
+
+
+        }
+
+        @media (min-width: 992px) {
+            #profile {
+                width: 200px;
+            }
+
+        }
+
+        @media (min-width: 1200px) {
+            #profile {
+                width: 250px;
+            }
+
+        }
+
         .slider-area2 {
             background-image: url('<?= base_url() ?>assets/img/hero/blog.jpg');
             background-repeat: no-repeat;
             background-position: center center;
             background-size: cover;
             background-color: rgba(0, 0, 0, 0.8);
+            width: 100%;
         }
 
         .page-link a {
@@ -55,7 +83,6 @@ $this->load->view('layout/header');
 
         .img-cropped {
             object-fit: cover;
-            /* object-position: center center; */
             width: 300px;
             height: 300px;
         }
@@ -71,15 +98,15 @@ $this->load->view('layout/header');
                             <div class="col-xl-12 col-lg-8 col-md-10 ">
                                 <div class="hero-wrapper">
                                     <div class="row">
-                                        <div class="col-md-6 ">
+                                        <div class="col-md-6">
                                             <center>
-                                                <img class="img-fluid rounded-circle img-cropped" width=" 350px" src="<?= base_url() ?>assets/img/user/<?= $user->foto ?>" class="img-fluid rounded-circle" alt="Responsive image">
+                                                <img id="profile" src="<?= base_url() ?>assets/img/user/<?= $user->foto ?>" class="img-thumbnail rounded-circle" alt="Responsive image">
                                             </center>
                                         </div>
                                         <div class="col-md-6 pt-5 mt-5">
-                                            <div class="hero__caption">
-                                                <h1 class="text-light" data-animation="fadeInUp" data-delay=".3s"><?= $user->nama ?></h1>
-                                                <p style="font-size: medium;" class="text-light" data-animation="fadeInUp" data-delay=".6s"><?= $user->profil ?></p>
+                                            <div class="text-center">
+                                                <h1 style="font-size: 30px;" class="text-light" data-animation="fadeInUp" data-delay=".3s"><?= $user->nama ?></h1>
+                                                <p id="user_profile" style="font-size: medium;" class="text-light d-none d-lg-block" data-animation="fadeInUp" data-delay=".6s"><?= $user->profil ?></p>
                                             </div>
                                         </div>
                                     </div>
