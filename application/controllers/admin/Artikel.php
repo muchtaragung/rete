@@ -44,7 +44,7 @@ class Artikel extends CI_Controller
         $data['id_user'] = $this->input->post('id_user');
         if (!empty($_FILES['gambar']['name'])) {
             $this->_delete_image($data['id_artikel']);
-            $data['gambar'] = $this->_upload();
+            $data['gambar'] = $this->_upload($data['slug']);
         }
 
         $this->artikel->update($data);
@@ -63,11 +63,11 @@ class Artikel extends CI_Controller
     }
 
 
-    private function _upload()
+    private function _upload($name)
     {
         $config['upload_path']   = './assets/img/artikel/';
         $config['allowed_types'] = 'gif|jpg|png|jpeg';
-        $config['file_name']     = uniqid();
+        $config['file_name']     = $name;
         $config['overwrite']     = true;
         $config['encrypt_name']  = false;
 
