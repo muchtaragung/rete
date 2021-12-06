@@ -41,8 +41,8 @@ class User extends CI_Controller
         $data['profil']   = $this->input->post('profil');
         $data['kota']     = $this->input->post('kota');
         $data['role']     = $this->input->post('role');
-        $data['foto']     = $this->_upload();
         $data['slug']    = $this->input->post('slug');
+        $data['foto']     = $this->_upload($data['slug']);
         $data['password'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
 
         $this->user->save($data);
@@ -71,8 +71,7 @@ class User extends CI_Controller
             $data['password'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
         }
         if (!empty($_FILES['foto']['name'])) {
-            $this->_delete_image($data['id_user']);
-            $data['foto'] = $this->_upload();
+            $data['foto'] = $this->_upload($data['slug']);
         }
 
         $this->user->update($data);
@@ -91,11 +90,11 @@ class User extends CI_Controller
     }
 
 
-    private function _upload()
+    private function _upload($name)
     {
         $config['upload_path']   = './assets/img/user/';
         $config['allowed_types'] = 'gif|jpg|png|jpeg';
-        $config['file_name']     = uniqid();
+        $config['file_name']     = $name;
         $config['overwrite']     = true;
         $config['encrypt_name']  = false;
 
